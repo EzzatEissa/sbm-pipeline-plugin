@@ -1,0 +1,31 @@
+{
+  "apiVersion": "tekton.dev/v1beta1",
+  "kind": "Pipeline",
+  "metadata": {
+    "name": "sbm-pipeline"
+  },
+  "spec": {
+    "resources": [
+      {
+        "name": "source-repo",
+        "type": "git"
+      }
+    ],
+    "tasks": [
+      {
+        "name": "deploy",
+        "taskRef": {
+          "name": "deploy-using-eclipse-jkube"
+        },
+        "resources": {
+          "inputs": [
+            {
+              "name": "source",
+              "resource": "source-repo"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

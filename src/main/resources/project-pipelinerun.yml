@@ -1,0 +1,21 @@
+{
+  "apiVersion": "tekton.dev/v1beta1",
+  "kind": "PipelineRun",
+  "metadata": {
+    "name": "sbm-pipeline-run-1"
+  },
+  "spec": {
+    "serviceAccountName": "pipeline",
+    "pipelineRef": {
+      "name": "sbm-pipeline"
+    },
+    "resources": [
+      {
+        "name": "source-repo",
+        "resourceRef": {
+          "name": "git-resource"
+        }
+      }
+    ]
+  }
+}
